@@ -144,8 +144,6 @@ function animate() {
       if (dist - projectile.radius - enemy.radius < 1) {
         if (enemy.radius - 10 > 10) {
           enemy.radius -= 10;
-          score += 10;
-          scoreEl.innerHTML = score;
           setTimeout(() => {
             projectiles.splice(projectileIndex, 1);
           }, 0);
