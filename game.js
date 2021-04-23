@@ -153,6 +153,8 @@ function animate() {
           setTimeout(() => {
             enemies.splice(index, 1);
             projectiles.splice(projectileIndex, 1);
+            enemy.radius -= 10;
+            score += 1;
           }, 0);
         }
       }
