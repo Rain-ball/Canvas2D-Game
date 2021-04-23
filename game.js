@@ -134,7 +134,7 @@ function animate() {
 
     if (dist - player.radius - enemy.radius < 1) {
       cancelAnimationFrame(animationId);
-      alert(`Your score is ${score}`)
+      alert(`Game over! \nHere are is your score: \nOverall Points: ${score} \nFrag Count: ${score / 10}`);
       document.location = "index.html";
     }
 
