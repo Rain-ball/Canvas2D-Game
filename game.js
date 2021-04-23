@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const scoreEl = document.querySelector("#scoreEl");
+let scoreEl = document.querySelector("#scoreEl");
 let score = 0;
 
 class Player {
