@@ -4,11 +4,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-window.addEventListener("resize", function(e) {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
 const scoreEl = document.querySelector("#scoreEl");
 let score = 0;
 
@@ -178,6 +173,11 @@ window.addEventListener("click", (event) => {
   projectiles.push(
     new Projectile(canvas.width / 2, canvas.height / 2, 5, "white", velocity)
   );
+});
+
+window.addEventListener("resize", function() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 
 animate();
