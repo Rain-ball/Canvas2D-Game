@@ -175,10 +175,5 @@ window.addEventListener("click", (event) => {
   );
 });
 
-window.addEventListener("resize", function() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
 animate();
 spawnEnemies();
