@@ -1,0 +1,6 @@
+23-04-2021
+- The first official version of Space Invasion available on web.
+
+25-04-2021
+- Added particle explosions
+- Added changelog to the game.
