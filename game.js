@@ -151,6 +151,10 @@ function animate() {
     }
   });
 
+  if (player.radius < 30) {
+    player.radius += 0.05;
+  }
+
   projectiles.forEach((projectile, index) => {
     projectile.update();
 
@@ -172,13 +176,19 @@ function animate() {
     const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y);
 
     if (dist - player.radius - enemy.radius < 1) {
-      cancelAnimationFrame(animationId);
-      alert(
-        `Game over! \nHere is your score: \nOverall Points: ${score} \nFrag Count: ${
-          score / 10
-        }`
-      );
-      document.location = "index.html";
+      player.radius -= (enemy.radius / 2);
+      if (player.radius <= 0) {
+        cancelAnimationFrame(animationId);
+        alert(
+          `Game over! \nHere is your score: \nOverall Points: ${score} \nFrag Count: ${
+            score / 10
+          }`
+        );
+        document.location = "index.html";
+      }
+      setTimeout(() => {
+        enemies.splice(index, 1);
+      }, 0)
     }
 
     projectiles.forEach((projectile, projectileIndex) => {
