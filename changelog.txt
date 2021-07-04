@@ -4,3 +4,7 @@
 25-04-2021
 - Added particle explosions
 - Added changelog to the game.
+
+04-07-2021
+- Added shields capacity and regen to enemies and player
+- Added difficulty level system based on score
