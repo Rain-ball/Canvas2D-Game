@@ -126,12 +126,12 @@ function spawnEnemies() {
     const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
     const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x);
     const velocity = {
-      x: Math.cos(angle),
-      y: Math.sin(angle),
+      x: Math.cos(angle) * Math.log10(Math.max(10, score / 10)),
+      y: Math.sin(angle) * Math.log10(Math.max(10, score / 10)),
     };
     if (radius < player.radius) {
-      velocity.x = velocity.x * 1.75;
-      velocity.y = velocity.y * 1.75;
+      velocity.x = velocity.x * 1.25;
+      velocity.y = velocity.y * 1.25;
     }
     enemies.push(new Enemy(x, y, radius, color, velocity));
   }, 1000);
@@ -173,7 +173,7 @@ function animate() {
   enemies.forEach((enemy, index) => {
     enemy.update();
 
-    if (enemy.radius < 30) {
+    if (enemy.radius < 30 && enemy.radius > player.radius) {
       enemy.radius += 0.025;
     }
 
