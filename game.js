@@ -151,7 +151,7 @@ function animate() {
     }
   });
 
-  if (player.radius < 30) {
+  if (player.radius < 20) {
     player.radius += 0.05;
   }
 
@@ -172,6 +172,10 @@ function animate() {
 
   enemies.forEach((enemy, index) => {
     enemy.update();
+
+    if (enemy.radius < 30) {
+      enemy.radius += 0.025;
+    }
 
     const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y);
 
