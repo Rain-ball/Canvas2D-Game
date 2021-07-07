@@ -167,6 +167,7 @@ function animate() {
       setTimeout(() => {
         projectiles.splice(index, 1);
       }, 0);
+      player.radius * 9 / 10
     }
   });
 
@@ -231,20 +232,30 @@ function animate() {
   });
 }
 
-window.addEventListener("click", (event) => {
-  const angle = Math.atan2(
-    event.clientY - canvas.height / 2,
-    event.clientX - canvas.width / 2
-  );
-  const velocity = {
-    x: Math.cos(angle) * 5,
-    y: Math.sin(angle) * 5,
-  };
+let interval
 
-  projectiles.push(
-    new Projectile(canvas.width / 2, canvas.height / 2, 5, "white", velocity)
-  );
+window.addEventListener("mousedown", (event) => {
+  event.preventDefault();
+  interval = setInterval(function() {
+    const angle = Math.atan2(
+      event.clientY - canvas.height / 2,
+      event.clientX - canvas.width / 2
+    );
+    const velocity = {
+      x: Math.cos(angle) * 5,
+      y: Math.sin(angle) * 5,
+    };
+
+    projectiles.push(
+      new Projectile(canvas.width / 2, canvas.height / 2, 5, "white", velocity)
+    );
+  }, 300)
 });
+
+window.addEventListener("mouseup", (event) => {
+  event.preventDefault;
+  clearInterval(interval)
+})
 
 animate();
 spawnEnemies();
